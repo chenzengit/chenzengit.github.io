@@ -3046,7 +3046,11 @@ void 0 !== document.hidden ? (hidden = "hidden", visibilityChange = "visibilityc
                 return null !== e && e.apply(this, arguments) || this
             }
             return __extends(n, e), n.prototype.create = function() {
-                this.game.time.advancedTiming = !0, this.buildContent(), localStorage.getItem("muted") && (game.sound.mute = !0), this.updateSoundButtons(), t.Settings.MUSIC_ENABLED_BY_DEFAULT && t.SoundController.instance.switchToMenuMusic(), t.WindowManager.instance.endTransition(), gradle.event('SCREEN_HOME')
+                this.game.time.advancedTiming = !0, this.buildContent(), 
+                if (localStorage) {
+                	localStorage.getItem("muted") && (game.sound.mute = !0)
+                }, 
+                this.updateSoundButtons(), t.Settings.MUSIC_ENABLED_BY_DEFAULT && t.SoundController.instance.switchToMenuMusic(), t.WindowManager.instance.endTransition(), gradle.event('SCREEN_HOME')
             }, n.prototype.buildContent = function() {
                 var e = this;
                 this.maskGraphics = this.addChild(this.game.make.graphics(0, -t.CustomScaleManager.ORIGINAL_WIDTH / 4)), this.maskGraphics.beginFill(0, 1).drawRect(0, 0, t.CustomScaleManager.ORIGINAL_WIDTH, 3 * t.CustomScaleManager.ORIGINAL_WIDTH).endFill(), this.container.mask = this.maskGraphics, /*this.backgroundImage = this.addChild(this.game.make.image(t.CustomScaleManager.ORIGINAL_WIDTH / 2, t.CustomScaleManager.ORIGINAL_HEIGHT / 2, "mainMenu")), this.backgroundImage.anchor.set(.5),*/ this.bottomGrass = this.addChild(this.game.make.sprite(t.CustomScaleManager.ORIGINAL_WIDTH / 2, t.CustomScaleManager.ORIGINAL_HEIGHT, t.Settings.UI_ATLAS, "menuGrassBottom0000")), this.bottomGrass.anchor.set(.5, 1), this.logo = this.addChild(this.game.make.sprite(t.CustomScaleManager.ORIGINAL_WIDTH / 2, -18, t.Settings.UI_ATLAS, "gameLogo0000")), this.logo.anchor.set(.5), this.subLogo = this.addChild(this.game.make.sprite(t.CustomScaleManager.ORIGINAL_WIDTH / 2, 210, t.Settings.UI_ATLAS, "gameSubLogo0000")), this.subLogo.anchor.set(.5), this.monster = this.addChild(this.game.make.sprite(t.CustomScaleManager.ORIGINAL_WIDTH / 2, -480, t.Settings.UI_ATLAS, "monsterMainMenu0000")), this.monster.anchor.set(.5, 1), this.foregroundGrass = this.addChild(this.game.make.sprite(t.CustomScaleManager.ORIGINAL_WIDTH / 2, t.CustomScaleManager.ORIGINAL_HEIGHT / 2 + 128, t.Settings.UI_ATLAS, "grassMainMenu0000")), this.foregroundGrass.anchor.set(.5), this.buttonPlay = this.addChild(t.ButtonUtils.createButton(t.Settings.UI_ATLAS, "buttonPlayMainMenu", t.CustomScaleManager.ORIGINAL_WIDTH / 2, t.CustomScaleManager.ORIGINAL_HEIGHT / 2 + 260, this.playClicked, this)), this.buttonPlay.scale.set(.9), this.buttonPlay.anchor.set(.5), this.buttonCredits = this.addChild(t.ButtonUtils.createButton(t.Settings.UI_ATLAS, "buttonCreditsMainMenu", t.CustomScaleManager.ORIGINAL_WIDTH / 2 - 230, t.CustomScaleManager.ORIGINAL_HEIGHT / 2 + 400, this.creditsClicked, this)), this.buttonCredits.anchor.set(.5), this.buttonSoundOn = this.addChild(t.ButtonUtils.createButton(t.Settings.UI_ATLAS, "buttonSoundOnMainMenu", t.CustomScaleManager.ORIGINAL_WIDTH / 2 + 230, t.CustomScaleManager.ORIGINAL_HEIGHT / 2 + 400, this.soundOnClicked, this)), this.buttonSoundOn.anchor.set(.5), this.buttonSoundOff = this.addChild(t.ButtonUtils.createButton(t.Settings.UI_ATLAS, "buttonSoundOffMainMenu", t.CustomScaleManager.ORIGINAL_WIDTH / 2 + 230, t.CustomScaleManager.ORIGINAL_HEIGHT / 2 + 400, this.soundOffClicked, this)), this.buttonSoundOff.anchor.set(.5), this.resize(0, 0), this.animateContent()
@@ -3095,12 +3099,18 @@ void 0 !== document.hidden ? (hidden = "hidden", visibilityChange = "visibilityc
                 this.game.sound.mute = !0, this.updateSoundButtons(), this.game.sound.play("click", .9), gradle.event('EVENT_VOLUMECHANGE', {
                     bgmVolume: 0,
                     sfxVolume: 0
-                }), localStorage.setItem("muted", !0)
+                }), 
+                if (localStorage) {
+                	localStorage.setItem("muted", !0)
+                }
             }, n.prototype.soundOffClicked = function() {
                 this.game.sound.mute = !1, this.updateSoundButtons(), this.game.sound.play("click", .9), gradle.event('EVENT_VOLUMECHANGE', {
                     bgmVolume: 1,
                     sfxVolume: 1
-                }), localStorage.removeItem("muted")
+                }), 
+                if (localStorage) {
+                	localStorage.removeItem("muted")
+                }
             }, n.prototype.updateSoundButtons = function() {
                 this.game.sound.mute ? (this.buttonSoundOn.visible = !1, this.buttonSoundOff.visible = !0) : (this.buttonSoundOn.visible = !0, this.buttonSoundOff.visible = !1)
             }, n
@@ -3673,7 +3683,10 @@ void 0 !== document.hidden ? (hidden = "hidden", visibilityChange = "visibilityc
             }, e.prototype.getLastUnlockedLevel = function() {
                 return this.data.level
             }, e.prototype.save = function() {
-                this.data.scores = t.ScoreManager.instance.getScores(), this.data.level = t.Settings.LAST_UNLOCKED_LEVEL, this.data.tutorialFirstStageCompleted = t.TutorialManager.instance.isFirstStageCompleted, this.data.tutorialSecondStageCompleted = t.TutorialManager.instance.isSecondStageCompleted, this.data.wheelTutorialCompleted = t.TutorialManager.instance.isWheelTutorialCompleted, this.data.wheelFirstTimeSpin = t.LevelsMap.firstTimeSpinned, this.isLocalStorageSupported && localStorage.setItem(t.Settings.STORAGE_NAME, JSON.stringify(this.data))
+                this.data.scores = t.ScoreManager.instance.getScores(), this.data.level = t.Settings.LAST_UNLOCKED_LEVEL, this.data.tutorialFirstStageCompleted = t.TutorialManager.instance.isFirstStageCompleted, this.data.tutorialSecondStageCompleted = t.TutorialManager.instance.isSecondStageCompleted, this.data.wheelTutorialCompleted = t.TutorialManager.instance.isWheelTutorialCompleted, this.data.wheelFirstTimeSpin = t.LevelsMap.firstTimeSpinned, 
+                if (localStorage) {
+                	this.isLocalStorageSupported && localStorage.setItem(t.Settings.STORAGE_NAME, JSON.stringify(this.data))
+                }
             }, e.prototype.checkLocalStorageSupported = function() {
                 try {
                     this.isLocalStorageSupported = "localStorage" in window && null !== window.localStorage
@@ -3684,10 +3697,12 @@ void 0 !== document.hidden ? (hidden = "hidden", visibilityChange = "visibilityc
                 this.checkLocalStorageSupported();
 				if(this.isLocalStorageSupported){
 					//console.log(t.Settings.STORAGE_NAME)
+					if (localStorage) {
 					localStorage.getItem(t.Settings.STORAGE_NAME) ? 
 						this.data = JSON.parse(localStorage.getItem(t.Settings.STORAGE_NAME)) 
 					: 
 						localStorage.setItem(t.Settings.STORAGE_NAME, JSON.stringify(this.data));
+					}
 				}
 				this.finalizeLoading();
             }, e.prototype.finalizeLoading = function() {
@@ -3946,12 +3961,18 @@ void 0 !== document.hidden ? (hidden = "hidden", visibilityChange = "visibilityc
                 this.game.sound.mute = !0, this.updateSoundButtons(), this.game.sound.play("click", .9), gradle.event('EVENT_VOLUMECHANGE', {
                     bgmVolume: 0,
                     sfxVolume: 0
-                }), localStorage.setItem("muted", !0)
+                }), 
+                if (localStorage) {
+                	localStorage.setItem("muted", !0)
+                }
             }, n.prototype.soundOffClicked = function() {
                 this.game.sound.mute = !1, this.updateSoundButtons(), this.game.sound.play("click", .9), gradle.event('EVENT_VOLUMECHANGE', {
                     bgmVolume: 1,
                     sfxVolume: 1
-                }), localStorage.removeItem("muted")
+                }), 
+                if (localStorage) {
+                	localStorage.removeItem("muted")
+                }
             }, n.prototype.updateSoundButtons = function() {
                 this.game.sound.mute ? (this.buttonSoundOn.visible = !1, this.buttonSoundOff.visible = !0) : (this.buttonSoundOn.visible = !0, this.buttonSoundOff.visible = !1)
             }, n
@@ -4007,12 +4028,18 @@ void 0 !== document.hidden ? (hidden = "hidden", visibilityChange = "visibilityc
                 this.game.sound.mute = !0, this.updateSoundButtons(), this.game.sound.play("click", .9), gradle.event('EVENT_VOLUMECHANGE', {
                     bgmVolume: 0,
                     sfxVolume: 0
-                }), localStorage.setItem("muted", !0)
+                }), 
+                if (localStorage) {
+                	localStorage.setItem("muted", !0)
+                }
             }, n.prototype.soundOffClicked = function() {
                 this.game.sound.mute = !1, this.updateSoundButtons(), this.game.sound.play("click", .9), gradle.event('EVENT_VOLUMECHANGE', {
                     bgmVolume: 1,
                     sfxVolume: 1
-                }), localStorage.removeItem("muted")
+                }), 
+                if (localStorage) {
+                	localStorage.removeItem("muted")
+                }
             }, n.prototype.updateSoundButtons = function() {
                 this.game.sound.mute ? (this.buttonSoundOn.visible = !1, this.buttonSoundOff.visible = !0) : (this.buttonSoundOn.visible = !0, this.buttonSoundOff.visible = !1)
             }, n
