@@ -10,7 +10,7 @@
 
 var gradle = {
     debug : true,
-	isMobile : ( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) ),
+	isMobile : false,//( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) ),
 
 	//Ads information :
 	//===================
