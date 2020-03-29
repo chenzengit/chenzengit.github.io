@@ -2468,7 +2468,9 @@ function initSplash() {
         muted || "pause" == gameState || (Howler.unmute(), music.play())
     };
 	
-	localStorage.getItem("muted") && (muted = !1, toggleMute(!0));
+    if (localStorage) {
+    	localStorage.getItem("muted") && (muted = !1, toggleMute(!0));
+    }
 	1 != audioType || muted || music.play();
 
 	initStartScreen();
