@@ -4555,7 +4555,7 @@ var Utils;
 ! function(t) {
     var e = function() {
         function t(t) {
-            this.dataGroupNum = 2, this.saveDataId = t, localStorage = localStorage ? localStorage : window.localStorage, this.clearData(), this.setInitialData()
+            this.dataGroupNum = 2, this.saveDataId = t, localStorage = (localStorage ? localStorage : window.localStorage), this.clearData(), this.setInitialData()
         }
         return t.prototype.clearData = function() {
             this.aLevelStore = new Array, this.aLevelStore.push(0)
