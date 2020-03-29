@@ -4560,17 +4560,23 @@ var Utils;
         }, t.prototype.resetData = function() {
             this.aLevelStore = new Array, this.aLevelStore.push(0), this.saveData()
         }, t.prototype.setInitialData = function() {
-            if (null != localStorage.getItem(this.saveDataId) && "" != localStorage.getItem(this.saveDataId)) {
-                this.aLevelStore = localStorage.getItem(this.saveDataId).split(",");
-                for (var t in this.aLevelStore) this.aLevelStore[t] = parseInt(this.aLevelStore[t])
-            } else this.saveData()
+            if (localStorage) {
+                if (null != localStorage.getItem(this.saveDataId) && "" != localStorage.getItem(this.saveDataId)) {
+                    this.aLevelStore = localStorage.getItem(this.saveDataId).split(",");
+                    for (var t in this.aLevelStore) this.aLevelStore[t] = parseInt(this.aLevelStore[t])
+                } else this.saveData()
+            } else {
+                this.saveData()
+            }
         }, t.prototype.setData = function(t) {
             this.aLevelStore[0] = t
         }, t.prototype.getData = function() {
             return this.aLevelStore[0]
         }, t.prototype.saveData = function() {
             for (var t = "", e = 0; e < this.aLevelStore.length; e++) t += this.aLevelStore[e], e < this.aLevelStore.length - 1 && (t += ",");
-            localStorage.setItem(this.saveDataId, t)
+            if (localStorage) {
+                localStorage.setItem(this.saveDataId, t)
+            }
         }, t
     }();
     t.SaveDataHandler = e
