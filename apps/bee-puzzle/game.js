@@ -3435,10 +3435,14 @@ function toggleMute(t) {
     muted = !muted, 1 == audioType ? muted ? (Howler.mute(), music.pause(), musicTween && musicTween.kill(), t || (gradle.event('EVENT_VOLUMECHANGE', {
         bgmVolume: 0,
         sfxVolume: 0
-    }), if (localStorage) {localStorage.setItem("muted", "1")})) : (Howler.unmute(), music.play(), musicTween && musicTween.kill(), "game" == gameState ? music.volume = .5 : music.volume = .25, t || (gradle.event('EVENT_VOLUMECHANGE', {
+    }), if (localStorage) {
+            localStorage.setItem("muted", "1")
+        })) : (Howler.unmute(), music.play(), musicTween && musicTween.kill(), "game" == gameState ? music.volume = .5 : music.volume = .25, t || (gradle.event('EVENT_VOLUMECHANGE', {
         bgmVolume: 1,
         sfxVolume: 1
-    }), if (localStorage) {localStorage.removeItem("muted")})) : 2 == audioType && (muted ? music.pause() : music.play())
+    }), if (localStorage) {
+            localStorage.removeItem("muted")
+        })) : 2 == audioType && (muted ? music.pause() : music.play())
 }
 var Utils;
 ! function(t) {
