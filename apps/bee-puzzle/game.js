@@ -4561,11 +4561,13 @@ var Utils;
             this.aLevelStore = new Array, this.aLevelStore.push(0), this.saveData()
         }, t.prototype.setInitialData = function() {
             if (localStorage) {
+                console.log('localStorage available');
                 if (null != localStorage.getItem(this.saveDataId) && "" != localStorage.getItem(this.saveDataId)) {
                     this.aLevelStore = localStorage.getItem(this.saveDataId).split(",");
                     for (var t in this.aLevelStore) this.aLevelStore[t] = parseInt(this.aLevelStore[t])
                 } else this.saveData()
             } else {
+                console.log('localStorage NOT available');
                 this.saveData()
             }
         }, t.prototype.setData = function(t) {
