@@ -3431,18 +3431,26 @@ function playSound(t) {
     1 == audioType && sound.play(t)
 }
 
+function toggleMuteExtraSet() {
+    if (localStorage) {
+        localStorage.setItem("muted", "1")
+    }
+}
+
+function toggleMuteExtraRemove() {
+    if (localStorage) {
+        localStorage.removeItem("muted")
+    }
+}
+
 function toggleMute(t) {
     muted = !muted, 1 == audioType ? muted ? (Howler.mute(), music.pause(), musicTween && musicTween.kill(), t || (gradle.event('EVENT_VOLUMECHANGE', {
         bgmVolume: 0,
         sfxVolume: 0
-    }), if (localStorage) {
-            localStorage.setItem("muted", "1")
-        })) : (Howler.unmute(), music.play(), musicTween && musicTween.kill(), "game" == gameState ? music.volume = .5 : music.volume = .25, t || (gradle.event('EVENT_VOLUMECHANGE', {
+    }), toggleMuteExtraSet())) : (Howler.unmute(), music.play(), musicTween && musicTween.kill(), "game" == gameState ? music.volume = .5 : music.volume = .25, t || (gradle.event('EVENT_VOLUMECHANGE', {
         bgmVolume: 1,
         sfxVolume: 1
-    }), if (localStorage) {
-            localStorage.removeItem("muted")
-        })) : 2 == audioType && (muted ? music.pause() : music.play())
+    }), toggleMuteExtraRemove())) : 2 == audioType && (muted ? music.pause() : music.play())
 }
 var Utils;
 ! function(t) {
