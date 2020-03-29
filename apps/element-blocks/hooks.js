@@ -32,7 +32,7 @@ TEXT_LINES = "LINES";
 PRIMARY_FONT = "cartoon";
 
 
-/*
+
 var gradle = {
 
 	//Parameters :
@@ -357,8 +357,3 @@ var gradle = {
 };
 
 gradle.run();
-
-
-*/
-
-
