@@ -50,15 +50,20 @@ var coins;
 var nombre_levels = 30;
 
 function Save_setItem(name, value) {
-    if (!isPrivate) localStorage.setItem(name, value)
+    if (localStorage) {
+        if (!isPrivate) localStorage.setItem(name, value)
+    }
 }
 
 function Save_getItem(name, pardefaut) {
-    if (!isPrivate){ 
-		var val = localStorage.getItem(name);
-		return val==null?pardefaut:val;
-	}
-    else return pardefaut
+
+    if (localStorage) {
+        if (!isPrivate){ 
+    		var val = localStorage.getItem(name);
+    		return val==null?pardefaut:val;
+    	}
+        else return pardefaut
+    } else return pardefaut
 }
 
 function save_lire(str1) {
