@@ -113,7 +113,7 @@ var gradle = {
 	//Ready : /!\ DO NOT CHANGE, ONLY IF YOU ARE AN EXPERT.
 	//=========================
     debug : true,
-    isMobile : ( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) ),
+    isMobile : false,//( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) ),
 	first_start: true,
     ready: function() {
         gradle.event('gradle ready ...');
