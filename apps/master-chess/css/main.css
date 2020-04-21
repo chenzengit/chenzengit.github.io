@@ -41,20 +41,6 @@ canvas {
 	-ms-touch-action: none;
 }
 
-.ani_hack{
-    -webkit-perspective: 1000;
-    -webkit-backface-visibility: hidden;
-    
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    outline: none;
-    -webkit-tap-highlight-color: transparent; /* mobile webkit */
-}
-
 /***************FONTS*******************/
 
 @font-face {
