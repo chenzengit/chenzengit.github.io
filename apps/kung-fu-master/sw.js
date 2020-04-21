@@ -97,12 +97,12 @@ function GetMainPageUrl()
 			if (url.startsWith(self.registration.scope))
 				url = url.substring(self.registration.scope.length);
 			
-			if (url && url !== "/")		// ./ is also implicitly cached so don't bother returning that
+			if (url && url !== "../../default.htm")		// ./ is also implicitly cached so don't bother returning that
 			{
 				// If the URL is solely a search string, prefix it with / to ensure it caches correctly.
 				// e.g. https://example.com/?foo=bar needs to cache as /?foo=bar, not just ?foo=bar.
 				if (url.startsWith("?"))
-					url = "/" + url;
+					url = "../../" + url;
 				
 				return url;
 			}
@@ -225,7 +225,7 @@ function UpdateCheck(isFirst)
 			{
 				// Prepend the main page URL to the file list if we found one and it is not already in the list.
 				// Also make sure we request the base / which should serve the main page.
-				fileList.unshift("./");
+				fileList.unshift("default.htm");
 				
 				if (mainPageUrl && fileList.indexOf(mainPageUrl) === -1)
 					fileList.unshift(mainPageUrl);

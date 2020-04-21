@@ -1,7 +1,5 @@
 ﻿<!DOCTYPE html>
 <html manifest="offline.appcache">
-
-<!-- Mirrored from uncertainstudio.com/html5games/KungFuMaster/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Apr 2020 17:31:03 GMT -->
 <head>
     <meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -67,11 +65,11 @@
 			<!-- This text is displayed if the visitor's browser does not support HTML5.
 			You can change it, but it is a good idea to link to a description of a browser
 			and provide some links to download some popular HTML5-compatible browsers. -->
-			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org/">What is a browser?</a>
-			<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
-			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
-			<a href="http://www.google.com/chrome/">Google Chrome</a><br/>
-			<a href="http://www.apple.com/safari/download/">Apple Safari</a></h1>
+			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="../../../www.whatbrowser.org/default.htm">What is a browser?</a>
+			<br/><br/><a href="../../../www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
+			<a href="../../../www.mozilla.com/firefox/default.htm">Mozilla Firefox</a><br/>
+			<a href="../../../www.google.com/chrome/default.htm">Google Chrome</a><br/>
+			<a href="../../../www.apple.com/safari/download/default.htm">Apple Safari</a></h1>
 		</canvas>
 		
 	</div>
@@ -121,7 +119,7 @@
 				return;		// no SW support, ignore call
 			
 			try {
-				navigator.serviceWorker.register("sw.js", { scope: "./" })
+				navigator.serviceWorker.register("sw.js", { scope: "default.htm" })
 				.then(function (reg)
 				{
 					console.log("Registered service worker on " + reg.scope);
@@ -135,6 +133,4 @@
 		};
     </script>
 </body> 
-
-<!-- Mirrored from uncertainstudio.com/html5games/KungFuMaster/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Apr 2020 17:31:09 GMT -->
 </html> 
