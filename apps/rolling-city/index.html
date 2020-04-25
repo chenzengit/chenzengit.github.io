@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>LayaBox | hello_world</title>
+
+    <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+    <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1" />
+
+    <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- force webkit on 360 -->
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <!-- force edge on IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- force full screen on some browser -->
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+
+    <!-- force screen orientation on some browser -->
+    <meta name="screen-orientation" content="" />
+    <meta name="x5-orientation" content="">
+
+    <!--fix fireball/issues/3568 -->
+    <!--<meta name="browsermode" content="application">-->
+    <meta name="x5-page-mode" content="app">
+
+    <!--<link rel="apple-touch-icon" href=".png" />-->
+    <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+    <link rel="stylesheet" type="text/css" href="style-mobile.f3671.css" />
+    <!-- <script src="https://connect.facebook.net/en_US/fbinstant.6.2.js"></script> -->
+    <script src="PlatformAPI_browserify.js"></script>
+    <script src="bluebird.min.js"></script>
+    <script src="sdk.js"></script>
+</head>
+
+<body style="margin:0px;padding:0px;overflow:hidden;">
+    <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+    <script>
+        PlatformAPI.init(1);
+        // window['FBInstant'].initializeAsync().then(function () {
+        //     let i = 0
+        //     window.fakeloadingInterval = setInterval(() => {
+        //         if (i < 96 && Math.random() < 0.05) {
+        //             i++;
+        //             FBInstant.setLoadingProgress(i);
+        //         }
+        //     }, 50);
+        // }).catch(function (t) {
+        //     console.error(t);
+        // });
+    </script>
+    <!-- 前端REDIS 支持，需要使用打开即可，代码参考`/local`目录 -->
+    <!--
+<script src="./redis-mock-browser.min.e1a6bb50.js" ></script>
+<script>
+var str = localStorage.getItem('storage');
+str && (window.RedisMockInstance.storage = JSON.parse(str));
+setInterval(function(){
+localStorage.setItem('storage',JSON.stringify(window.RedisMockInstance.storage));
+},200);
+Promise.promisifyAll(window.RedisMockInstance.RedisClient.prototype);
+Promise.promisifyAll(window.RedisMockInstance.Multi.prototype);
+var client = window.client = window.RedisMockInstance.createClient();
+</script>
+-->
+    <script src="underscore.min.js"></script>
+    <script src="rewarded-video-ad.js"></script>
+    <script src="xhr-mock.js"></script>
+    <script src="api/index.js"></script>
+    <!-- <script src="./local/{hostname}/user/add_diamond.js"></script> -->
+    <!-- API for yjsdk-platform.allrace.com -->
+
+    <!-- API for ball.xiaohuaiyule.com -->
+    <script src="api/get_newbie_reward.api.js"></script>
+    <script src="api/sync_client_data.api.js"></script>
+    <script src="api/get_login_reward.api.js"></script>
+
+    <script src="rewarded-video-ad.js"></script>
+    <script src="interstitial-ad.js"></script>
+    <script src="degradable-ad.js"></script>
+
+    <!-- strings.js 是用来替换翻译文本的文件
+使用方法为，在Label标签的设置text 方法中:
+text = window.__replace_string ? window.__replace_string(text,this) : text;
+-->
+    <script src="strings.js"></script>
+    <script src="game.592853f8.js"></script>
+    <div id="bannerDiv"> </div>
+    <div id="loadingDiv"> </div>
+    <style>
+        #loadingDiv {
+            /* background-color: red; */
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            padding: 8px;
+            border-radius: 5px;
+            z-index: 10;
+            width: 300px;
+            height: 250px;
+            display: none;
+        }
+        #bannerDiv {
+            /* background-color: red; */
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            padding: 8px;
+            border-radius: 5px;
+            z-index: 10;
+            width: 730px;
+            height: 100px;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            window.SharedCanvas = document.getElementById('GameCanvas');
+        };
+    </script>
+</body>
+
+</html>
