@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Idle Fish</title>
+
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- force webkit on 360 -->
+  <meta name="renderer" content="webkit"/>
+  <meta name="force-rendering" content="webkit"/>
+  <!-- force edge on IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- force full screen on some browser -->
+  <meta name="full-screen" content="yes"/>
+  <meta name="x5-fullscreen" content="true"/>
+  <meta name="360-fullscreen" content="true"/>
+  
+  <!-- force screen orientation on some browser -->
+  <meta name="screen-orientation" content=""/>
+  <meta name="x5-orientation" content="">
+
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
+  <meta name="x5-page-mode" content="app">
+
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+  <link rel="stylesheet" type="text/css" href="style-mobile.css"/>
+  <script>
+    window["GD_OPTIONS"] = {
+      "gameId": "bb21440bc89d469481bd8f7f3955f606",
+      "onEvent": function(event) {
+          switch (event.name) {
+              case "SDK_GAME_START":
+                  // advertisement done, resume game logic and unmute audio
+                  cc.audioEngine.resumeAll();
+                  break;
+              case "SDK_GAME_PAUSE":
+                  // pause game logic / mute audio
+                  cc.audioEngine.pauseAll();
+                  break;
+              case "SDK_GDPR_TRACKING":
+                  // this event is triggered when your user doesn't want to be tracked
+                  break;
+              case "SDK_GDPR_TARGETING":
+                  // this event is triggered when your user doesn't want personalised targeting of ads and such
+                  break;
+              case "AD_SDK_REQUEST_ADS":
+                  //window.gameSDK && (window.gameSDK.fbIAD.loadedAd = 1);
+                  break;
+              case "AD_SDK_FINISHED":
+
+                  break;
+              case "AD_SDK_ERROR":
+              case "AD_CANCELED":
+                  //window.gameSDK && (window.gameSDK.fbIAD.loadedAd = null);
+                  break;
+          }
+      },
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = '../../../https@html5.api.gamedistribution.com/main.min.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'gamedistribution-jssdk'));
+  </script>
+</head>
+<script>
+    var loadProgress = 1;
+    var loadRealProgress = 0;
+    var isLoadComplete = false;
+    var updateProgress = null;
+	
+	var upateLoadProgress = function()
+    {
+      
+    }
+
+	
+	var loadJs = function(url, cb)
+	{
+		var script = document.createElement("script");
+		script.async = false;
+		script.src = url;
+		document.body.appendChild(script);
+		if(cb != null)
+		{
+		  script.onload = cb;
+		}
+	}
+	
+  function bodyLoadComplete()
+  {
+	  document.body.style.background="#000";
+    loadJs("src/settings.js",function(){            
+      loadJs("main.js", null);
+    });
+	
+  }
+</script>
+<body onload="bodyLoadComplete()">
+  <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+  <div id="splash">
+    <div class="progress-bar stripes">
+      <span style="width: 0%"></span>
+    </div>
+  </div>
+</body>
+</html>

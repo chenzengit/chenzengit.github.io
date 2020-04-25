@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang=en><head><title>Mr Bullet Online</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name=description content="Are you ready to become a hero, spy, and legend? Solve puzzling challenges, show off your deadly accuracy and take aim at the enemies. Come experience the shooting phenomenon. Use your brain in this unique puzzle game. You will need precise aim and laser focus to take down enemies, grannys, and many other bad guys you will encounter in the world! Start your adventure now! The one thing you have to ask yourself is: can you do it in one shot?"><meta name=keywords content=#addictive,#adventure,#action><meta property=og:type content=website><meta property=og:title content="Mr Bullet Online"><meta property=og:description content="Are you ready to become a hero, spy, and legend? Solve puzzling challenges, show off your deadly accuracy and take aim at the enemies. Come experience the shooting phenomenon. Use your brain in this unique puzzle game. You will need precise aim and laser focus to take down enemies, grannys, and many other bad guys you will encounter in the world! Start your adventure now! The one thing you have to ask yourself is: can you do it in one shot?"><meta property=og:image content=https://img.gamedistribution.com/f4833b75d03641d1815d201fd12ecf64-512x512.jpeg><meta property=og:url content=https://html5.gamedistribution.com/f4833b75d03641d1815d201fd12ecf64/ ><link rel=canonical href=default.htm ><link rel=preconnect href=../../https@games.api.gamedistribution.com/default.htm><link rel=preconnect href=../../https@html5.api.gamedistribution.com/default.htm><link rel=preconnect href=../default.htm><link rel=preconnect href=../../https@msgrt.gamedistribution.com/default.htm><link rel=preconnect href=../../https@ana.tunnl.com/default.htm><link rel=preconnect href=../../https@imasdk.googleapis.com/default.htm><link rel=preconnect href=../../https@hb.improvedigital.com/default.htm><link rel=preconnect href=../../https@www.google-analytics.com/default.htm><link rel=preconnect href=../../https@adservice.google.com/default.htm><link rel=preconnect href=../../https@www.googletagservices.com/default.htm><link rel=preconnect href=../../https@s0.2mdn.net/default.htm><link rel=preconnect href=../../https@securepubads.g.doubleclick.net/default.htm><link rel=preload href=../../https@img.gamedistribution.com/f4833b75d03641d1815d201fd12ecf64-512x512.jpeg as=image><link rel=preload href=../../https@www.google-analytics.com/analytics.js as=script><link rel=preload href=../../https@imasdk.googleapis.com/js/sdkloader/ima3.js as=script><link rel=preload href=../../https@hb.improvedigital.com/pbw/gameDistributionV1.2.min.js as=script><link rel=preload href=../../https@html5.api.gamedistribution.com/main.min.js as=script><script type=application/ld+json>{
+  "@context": "../../schema.org",
+  "@type": "Game",
+  "name": "Mr Bullet Online",
+  "url": "default.htm",
+  "image": "../../https@img.gamedistribution.com/f4833b75d03641d1815d201fd12ecf64-512x512.jpeg",    
+  "description": "Are you ready to become a hero, spy, and legend? Solve puzzling challenges, show off your deadly accuracy and take aim at the enemies. Come experience the shooting phenomenon. Use your brain in this unique puzzle game. You will need precise aim and laser focus to take down enemies, grannys, and many other bad guys you will encounter in the world! Start your adventure now! The one thing you have to ask yourself is: can you do it in one shot?",
+  "publisher":"gamedistribution.com",
+  "genre":[
+      "#addictive",
+      "#adventure",
+      "#action"
+  ]
+}</script><style>html{height:100%}body{margin:0;padding:0;background-color:#000;overflow:hidden;height:100%}#game{position:absolute;top:0;left:0;width:0;height:0;overflow:hidden;max-width:100%;max-height:100%;min-width:100%;min-height:100%;box-sizing:border-box;visibility:hidden}</style></head><body><iframe id=game frameborder=0 allow=autoplay allowfullscreen seamless scrolling=no></iframe><script type=text/javascript>(function() {
+  function GameLoader() {
+    this.init = function() {
+      this._gameId = "f4833b75d03641d1815d201fd12ecf64";
+      this._container = document.getElementById("game");
+      this._loader=this._getLoaderData();
+      this._hasImpression=false;
+      this._hasSuccess=false;
+      this._insertGameSDK();
+    };
+    
+    this._getLoaderData=function(){
+      return {"enabled":true};
+    }
+
+    this._insertGameSDK = function() {
+      if (!this._gameId) return;
+
+      window["GD_OPTIONS"] = {
+        gameId: this._gameId,
+        loader:this._loader,
+        onLoaderEvent: this._onLoaderEvent.bind(this),
+        onEvent: this._onEvent.bind(this)
+      };
+      
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "../../https@html5.api.gamedistribution.com/main.min.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "gamedistribution-jssdk");
+    };
+    
+    this._loadGame = function(options) {
+      this._container.style.visibility=options.display? "visible":"hidden";
+      if(options.display){
+        var gameFrame=this._container;
+        setTimeout(function(){
+          gameFrame.contentWindow.focus();
+        },250);
+      }
+      if (this._container_initialized) {
+        if(!this.sentResumeEvent){
+          this.sentResumeEvent=true;
+          this._sendResumeEvent();       
+        }   
+        return;
+      }
+      
+      const formatTokenURLSearch=this._bridge.exports.formatTokenURLSearch;
+
+      const data = {
+        parentURL: this._bridge.parentURL,
+        parentDomain: this._bridge.parentDomain,
+        topDomain: this._bridge.topDomain,
+        hasImpression: options.hasImpression,
+        loaderEnabled:this._loader.enabled,
+        version: "1.1.36"
+      };
+
+      const searchPart=formatTokenURLSearch(data);
+      var gameSrc="../rvvASMiM/f4833b75d03641d1815d201fd12ecf64/"+searchPart;
+      this._container.src = gameSrc;
+
+      this._container_initialized = true;
+    };
+
+    this._onLoaderEvent = function(event) {
+      switch (event.name) {
+        case "LOADER_DATA":
+          this._bridge = event.message.bridge;
+          this._game = event.message.game;
+          break;
+      }
+    };
+
+    this._onEvent = function(event) {
+      
+      switch (event.name) {
+        case "SDK_GAME_START":
+          this._bridge&&this._loadGame({
+            hasImpression: this._hasImpression,
+            display:true
+          });
+          break;
+        case "AD_ERROR":
+        case "AD_SDK_CANCELED":
+          this._hasImpression=false||this._hasSuccess;
+          break;
+        case "ALL_ADS_COMPLETED":
+        case "COMPLETE":
+        case "USER_CLOSE":
+        case "SKIPPED":
+          this._hasImpression=true;
+          this._hasSuccess=true;
+          break;
+      }
+    };
+    
+    this._sendResumeEvent=function(){
+      try{
+        this._container.contentWindow.postMessage({ topic:"gdzone.resume"},"*");
+      }
+      catch(error){
+        console.log(error.message);
+      }
+    }
+  }
+  new GameLoader().init();
+})();</script></body></html>
