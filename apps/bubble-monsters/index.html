@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN">
+<html lang="en">
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html" />
+    <title>CoolGames</title>
+	<meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <link rel="apple-touch-icon-precomposed"                    href="AppIcon60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76"      href="AppIcon76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120"    href="AppIcon60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152"    href="AppIcon76x76.png" />
+    <link rel="icon" type="image/png"                           href="AppIcon76x76.png" />
+		
+	<!-- Booster SDK -->
+    <script src="scripts/Publisher.js"></script>
+    <script type="text/javascript">
+        var mode = (RegExp('bm.mode' + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1];
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.setAttribute('id', 'booster-api');
+
+        if (mode == "test") {
+            script.src = '../../../../../../games.bmmob.com/shared/booster/api.js';
+        } else {
+            script.src = '../../../../../shared/booster/api.js';
+        }
+
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(script, s);
+    </script>
+	<!-- Custom Tingly - Booster integration -->
+	<script type="text/javascript">
+
+	var Booster = window.Booster || {};
+
+	Booster.ready = function() {
+		window.Booster.ready = true;
+	};
+	</script>
+	<!-- End Booster SDK -->
+    <link rel="stylesheet" type="text/css" media="screen" href="gamepage.css" />
+</head>
+
+<body oncontextmenu="return false">
+    <script type="text/javascript" src= "index.js"></script>
+    <body oncontextmenu="return false">
+</body>
+</html>
+
