@@ -19530,68 +19530,68 @@ cr.plugins_.GD_SDK = function(runtime) {
     this.gdsdk = window["gdsdk"];
     var self = this;
     this.gdsdk["onInit"] = function() {
-      cr.logexport("Gamedistribution.com SDK: onInit");
-      self.isShowingBannerAd = false;
-      self.runtime.trigger(cr.plugins_.GD_SDK.prototype.cnds.onInit, self);
+      // cr.logexport("Gamedistribution.com SDK: onInit");
+      // self.isShowingBannerAd = false;
+      // self.runtime.trigger(cr.plugins_.GD_SDK.prototype.cnds.onInit, self);
     };
     this.gdsdk["onError"] = function() {
-      cr.logexport("Gamedistribution.com SDK: onError");
-      self.isShowingBannerAd = true;
-      self.runtime.trigger(cr.plugins_.GD_SDK.prototype.cnds.onError, self);
+      // cr.logexport("Gamedistribution.com SDK: onError");
+      // self.isShowingBannerAd = true;
+      // self.runtime.trigger(cr.plugins_.GD_SDK.prototype.cnds.onError, self);
     };
     this.gdsdk["onResumeGame"] = function() {
-      cr.logexport("Gamedistribution.com SDK: onResume");
-      self.isShowingBannerAd = false;
-      self.runtime.trigger(
-        cr.plugins_.GD_SDK.prototype.cnds.onResumeGame,
-        self
-      );
+      // cr.logexport("Gamedistribution.com SDK: onResume");
+      // self.isShowingBannerAd = false;
+      // self.runtime.trigger(
+      //   cr.plugins_.GD_SDK.prototype.cnds.onResumeGame,
+      //   self
+      // );
     };
     this.gdsdk["onPauseGame"] = function() {
-      cr.logexport("Gamedistribution.com SDK: onPauseGame");
-      self.isShowingBannerAd = true;
-      self.runtime.trigger(cr.plugins_.GD_SDK.prototype.cnds.onPauseGame, self);
+      // cr.logexport("Gamedistribution.com SDK: onPauseGame");
+      // self.isShowingBannerAd = true;
+      // self.runtime.trigger(cr.plugins_.GD_SDK.prototype.cnds.onPauseGame, self);
     };
     this.gdsdk["onPreloadedAd"] = function() {
-      cr.logexport("Gamedistribution.com SDK: onPreloadedAd");
-      self.isShowingBannerAd = true;
-      self.runtime.trigger(
-        cr.plugins_.GD_SDK.prototype.cnds.onPreloadedAd,
-        self
-      );
+      // cr.logexport("Gamedistribution.com SDK: onPreloadedAd");
+      // self.isShowingBannerAd = true;
+      // self.runtime.trigger(
+      //   cr.plugins_.GD_SDK.prototype.cnds.onPreloadedAd,
+      //   self
+      // );
     };
     this.gdsdk["InitAds"] = function() {
-      window["GD_OPTIONS"] = {
-        gameId: self.properties[0],
-        advertisementSettings: {
-          autoplay: false
-        },
-        onEvent: function(event) {
-          switch (event.name) {
-            case "SDK_GAME_START":
-              self.gdsdk["onResumeGame"]();
-              break;
-            case "SDK_GAME_PAUSE":
-              self.gdsdk["onPauseGame"]();
-              break;
-            case "SDK_READY":
-              self.gdsdk["onInit"]();
-              break;
-            case "SDK_ERROR":
-              self.gdsdk["onError"]();
-              break;
-          }
-        }
-      };
-      (function(d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//html5.api.gamedistribution.com/main.min.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, "script", "gamedistribution-jssdk");
+      // window["GD_OPTIONS"] = {
+      //   gameId: self.properties[0],
+      //   advertisementSettings: {
+      //     autoplay: false
+      //   },
+      //   onEvent: function(event) {
+      //     switch (event.name) {
+      //       case "SDK_GAME_START":
+      //         self.gdsdk["onResumeGame"]();
+      //         break;
+      //       case "SDK_GAME_PAUSE":
+      //         self.gdsdk["onPauseGame"]();
+      //         break;
+      //       case "SDK_READY":
+      //         self.gdsdk["onInit"]();
+      //         break;
+      //       case "SDK_ERROR":
+      //         self.gdsdk["onError"]();
+      //         break;
+      //     }
+      //   }
+      // };
+      // (function(d, s, id) {
+      //   var js,
+      //     fjs = d.getElementsByTagName(s)[0];
+      //   if (d.getElementById(id)) return;
+      //   js = d.createElement(s);
+      //   js.id = id;
+      //   js.src = "//html5.api.gamedistribution.com/main.min.js";
+      //   fjs.parentNode.insertBefore(js, fjs);
+      // })(document, "script", "gamedistribution-jssdk");
     };
   };
   function Cnds() {}
@@ -19616,60 +19616,60 @@ cr.plugins_.GD_SDK = function(runtime) {
   pluginProto.cnds = new Cnds();
   function Acts() {}
   Acts.prototype.ShowAd = function() {
-    if (!isSupported) return;
-    if (typeof window["gdsdk"]["showAd"] === "undefined") {
-      cr.logexport(
-        "Gamedistribution.com SDK is not loaded or an ad blocker is present."
-      );
-      this.gdsdk["onResumeGame"]();
-      return;
-    }
-    window["gdsdk"]["showAd"]();
-    cr.logexport("ShowAd");
-    this.isShowingBannerAd = true;
+    // if (!isSupported) return;
+    // if (typeof window["gdsdk"]["showAd"] === "undefined") {
+    //   cr.logexport(
+    //     "Gamedistribution.com SDK is not loaded or an ad blocker is present."
+    //   );
+    //   this.gdsdk["onResumeGame"]();
+    //   return;
+    // }
+    // window["gdsdk"]["showAd"]();
+    // cr.logexport("ShowAd");
+    // this.isShowingBannerAd = true;
   };
   Acts.prototype.ShowRewardedAd = function() {
-    if (!isSupported) return;
-    if (typeof window["gdsdk"]["showAd"] === "undefined") {
-      cr.logexport(
-        "Gamedistribution.com SDK is not loaded or an ad blocker is present."
-      );
-      this.gdsdk["onResumeGame"]();
-      return;
-    }
-    window["gdsdk"]["showAd"]("rewarded");
-    cr.logexport("ShowRewardedAd");
-    this.isShowingBannerAd = true;
+    // if (!isSupported) return;
+    // if (typeof window["gdsdk"]["showAd"] === "undefined") {
+    //   cr.logexport(
+    //     "Gamedistribution.com SDK is not loaded or an ad blocker is present."
+    //   );
+    //   this.gdsdk["onResumeGame"]();
+    //   return;
+    // }
+    // window["gdsdk"]["showAd"]("rewarded");
+    // cr.logexport("ShowRewardedAd");
+    // this.isShowingBannerAd = true;
   };
   Acts.prototype.PreloadRewardedAd = function() {
-    if (!isSupported) return;
-    if (typeof window["gdsdk"]["preloadAd"] === "undefined") {
-      cr.logexport(
-        "Gamedistribution.com SDK is not loaded or an ad blocker is present."
-      );
-      this.gdsdk["onResumeGame"]();
-      return;
-    }
-    window["gdsdk"]
-      ["preloadAd"]("rewarded")
-      .then(() => {
-        this.gdsdk["onPreloadedAd"]();
-      })
-      .catch(error => {
-        this.gdsdk["onResumeGame"]();
-      });
-    cr.logexport("PreloadRewardedAd");
-    this.isShowingBannerAd = false;
+    // if (!isSupported) return;
+    // if (typeof window["gdsdk"]["preloadAd"] === "undefined") {
+    //   cr.logexport(
+    //     "Gamedistribution.com SDK is not loaded or an ad blocker is present."
+    //   );
+    //   this.gdsdk["onResumeGame"]();
+    //   return;
+    // }
+    // window["gdsdk"]
+    //   ["preloadAd"]("rewarded")
+    //   .then(() => {
+    //     this.gdsdk["onPreloadedAd"]();
+    //   })
+    //   .catch(error => {
+    //     this.gdsdk["onResumeGame"]();
+    //   });
+    // cr.logexport("PreloadRewardedAd");
+    // this.isShowingBannerAd = false;
   };
   Acts.prototype.PlayLog = function() {
-    if (!isSupported) return;
+    // if (!isSupported) return;
   };
   Acts.prototype.CustomLog = function() {
-    if (!isSupported) return;
+    // if (!isSupported) return;
   };
   Acts.prototype.InitAds = function() {
-    if (!isSupported) return;
-    this.gdsdk["InitAds"]();
+    // if (!isSupported) return;
+    // this.gdsdk["InitAds"]();
   };
   pluginProto.acts = new Acts();
   function Exps() {}
