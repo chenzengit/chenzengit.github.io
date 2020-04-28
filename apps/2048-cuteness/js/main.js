@@ -2226,7 +2226,7 @@ function CMenu() {
 		new CCreditsPanel
 	};
 	this._onButPlayRelease = function () {
-		gdsdk.showBanner();
+		// gdsdk.showBanner();
 		this.unload();
 		isIOS() && null === s_oSoundTrack ? s_oSoundTrack = playSound("soundtrack", 1, !0) : playSound("click", 1, !1);
 		s_oMain.gotoGame()
