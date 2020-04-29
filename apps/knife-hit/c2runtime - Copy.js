@@ -20333,8 +20333,7 @@ cr.plugins_.IDNet = function(runtime) {
 	        var js, fjs = d.getElementsByTagName(s)[0];
 	        if (d.getElementById(id)) {return;}
 	        js = d.createElement(s); js.id = id;
-	        // js.src =  document.location.protocol == 'https:' ? "../../../../../https@cdn.y8.com/api/sdk.js" : "../../../../../cdn.y8.com/api/sdk.js";
-	        js.src =  document.location.protocol == 'https:' ? "https://cdn.y8.com/api/sdk.js" : "http://cdn.y8.com/api/sdk.js";
+	        js.src =  document.location.protocol == 'https:' ? "../../../../../https@cdn.y8.com/api/sdk.js" : "../../../../../cdn.y8.com/api/sdk.js";
 	        fjs.parentNode.insertBefore(js, fjs);
 	    }(document, 'script', 'id-jssdk'));
 		window.idAsyncInit = function() {
@@ -20357,8 +20356,7 @@ cr.plugins_.IDNet = function(runtime) {
 				} else {
 					var js_auto = document.createElement('script');
 					js_auto.id = 'id-autologin';
-					// js_auto.src = "../../../../../https@account.y8.com/api/user_data/autologin@app_id=" + appid_ + "&callback=window.idnet_autologin";
-					js_auto.src = "https://account.y8.com/api/user_data/autologin?app_id=" + appid_ + "&callback=window.idnet_autologin";
+					js_auto.src = "../../../../../https@account.y8.com/api/user_data/autologin@app_id=" + appid_ + "&callback=window.idnet_autologin";
 					fjs.parentNode.insertBefore(js_auto, fjs);
 				}
 				console.log("Y8 initialized");
