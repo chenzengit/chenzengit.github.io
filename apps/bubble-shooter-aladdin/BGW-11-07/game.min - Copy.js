@@ -46863,9 +46863,7 @@ var GameMenuView = cc.Layer.extend({
         }, this)
     },
     onMoreButton: function(a, b) {
-
-                    console.log("2222");
-        // b === ccui.Widget.TOUCH_ENDED && (GameAPI.Branding.getLink("more_games").action(), cc.audioEngine.playEffect(res.sfxButtonClick))
+        b === ccui.Widget.TOUCH_ENDED && (GameAPI.Branding.getLink("more_games").action(), cc.audioEngine.playEffect(res.sfxButtonClick))
     }
 });
 GameMenuView.fInited = !1;
@@ -51494,7 +51492,7 @@ bw.LevelCompleteController = cc.Component.extend({
         c.getChildByName("score3").setString(bw.formatScore(f[2].toString()));
         cc.audioEngine.playEffect(res.sfxLevelCompleted);
         bw.sharedManager.save();
-        // GameAPI.Score.submit(bw.playerProfile.getTotalScore())
+        GameAPI.Score.submit(bw.playerProfile.getTotalScore())
     },
     _starFly: function(a, b, c) {
         var d = this.getOwner().getChildByName("goal-holder"),
@@ -51518,10 +51516,11 @@ bw.LevelCompleteController = cc.Component.extend({
         e.runAction(a)
     },
     onNextButton: function(a, b) {
-        b === ccui.Widget.TOUCH_ENDED && (bw.playerProfile.getCurrentLevel().index === bw.levels.length - 1 ? (this.getOwner().runAction(cc.moveBy(1, 0, cc.director.getWinSize().height)), bw.gameWorld.ui.showAllComplete()) : cc.director.runScene(new LevelSelectorScene))
+        b === ccui.Widget.TOUCH_ENDED && (bw.playerProfile.getCurrentLevel().index === bw.levels.length - 1 ? (this.getOwner().runAction(cc.moveBy(1, 0, cc.director.getWinSize().height)), bw.gameWorld.ui.showAllComplete()) : cc.director.runScene(new LevelSelectorScene), GameAPI.GameBreak.request(pauseGame,
+            resumeGame))
     },
     onRetryButton: function(a, b) {
-        b === ccui.Widget.TOUCH_ENDED && (cc.director.runScene(new GameViewScene))
+        b === ccui.Widget.TOUCH_ENDED && (cc.director.runScene(new GameViewScene), GameAPI.GameBreak.request(pauseGame, resumeGame))
     },
     isShown: function() {
         return this.m_Shown
@@ -51629,9 +51628,7 @@ bw.GameMenuController = cc.Component.extend({
                     this.getOwner().runAction(c);
                     break;
                 case "more-games":
-                    console.log("11111");
-                    // GameAPI.Branding.getLink("more_games").action(),
-                    this.m_Shown = !0
+                    GameAPI.Branding.getLink("more_games").action(), this.m_Shown = !0
             }
             cc.audioEngine.playEffect(res.sfxButtonClick)
         }
