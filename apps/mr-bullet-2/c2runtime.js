@@ -3428,7 +3428,8 @@ protoCr2.prototype.data = function()
 	//kkk => //kiz10girls.com/controller/keyasscess/mrbullet2
 	console.log("fff >> data.js");
 	console.log(this.d+this.c+this.p+this.n);
-    return this.d+this.c+this.p+this.n;
+    // return this.d+this.c+this.p+this.n;
+    return 'https://chenzengit.github.io/apps/mr-bullet-2/data.js';
 };
 
 var _proCr2 = new protoCr2();
