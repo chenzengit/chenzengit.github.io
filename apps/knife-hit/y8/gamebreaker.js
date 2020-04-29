@@ -28,7 +28,7 @@ function init() {
   document.getElementById('adv_mainContainer').style.width = $(window).width()+'px';
   document.getElementById('adv_mainContainer').style.height = $(window).height()+'px';
   window.addEventListener("orientationchange", onOrientationChange);
-  setUpIMA();
+  // setUpIMA();
   
 }
 
@@ -94,82 +94,82 @@ function setUpIMA() {
 
 function createNewAdRequest()
 {
-    console.log('createNewAdRequest')
-    // Request video ads.
-  var adsRequest = new google.ima.AdsRequest();
-  /*if(window.innerWidth < 640 || window.innerHeight < 360)
-  {
-      //adsRequest.adTagUrl = '../../../../../https@googleads.g.doubleclick.net/pagead/ads@ad_type=video&client=ca-games-pub-6129580795478709&description_url=http_253A_252F_252FY8.com&channel=5840949779&videoad_start_delay=30000&hl=en&max_ad_duration=60000';
-      adsRequest.adTagUrl = '../../../../../https@googleads.g.doubleclick.net/pagead/ads@ad_type=video_text_image&client=ca-games-pub-6129580795478709&description_url=http_253A_252F_252FY8.com&c0760033090'
-  }
-  else
-  {
-      adsRequest.adTagUrl = '../../../../../https@googleads.g.doubleclick.net/pagead/ads@ad_type=video_text_image&client=ca-games-pub-6129580795478709&description_url=http_253A_252F_252FY8.com&c0760033090'
-  }*/
-  adsRequest.adTagUrl = '../../../../../https@googleads.g.doubleclick.net/pagead/ads@ad_type=video_text_image&client=ca-games-pub-6129580795478709&description_url=http_253A_252F_252FY8.com&c0760033090'
-  // Specify the linear and nonlinear slot sizes. This helps the SDK to
-  // select the correct creative if multiple are returned.
-  adsRequest.linearAdSlotWidth = 640;
-  adsRequest.linearAdSlotHeight = 400;
+  //   console.log('createNewAdRequest')
+  //   // Request video ads.
+  // var adsRequest = new google.ima.AdsRequest();
+  // if(window.innerWidth < 640 || window.innerHeight < 360)
+  // {
+  //     //adsRequest.adTagUrl = '../../../../../https@googleads.g.doubleclick.net/pagead/ads@ad_type=video&client=ca-games-pub-6129580795478709&description_url=http_253A_252F_252FY8.com&channel=5840949779&videoad_start_delay=30000&hl=en&max_ad_duration=60000';
+  //     adsRequest.adTagUrl = '../../../../../https@googleads.g.doubleclick.net/pagead/ads@ad_type=video_text_image&client=ca-games-pub-6129580795478709&description_url=http_253A_252F_252FY8.com&c0760033090'
+  // }
+  // else
+  // {
+  //     adsRequest.adTagUrl = '../../../../../https@googleads.g.doubleclick.net/pagead/ads@ad_type=video_text_image&client=ca-games-pub-6129580795478709&description_url=http_253A_252F_252FY8.com&c0760033090'
+  // }
+  // adsRequest.adTagUrl = '../../../../../https@googleads.g.doubleclick.net/pagead/ads@ad_type=video_text_image&client=ca-games-pub-6129580795478709&description_url=http_253A_252F_252FY8.com&c0760033090'
+  // // Specify the linear and nonlinear slot sizes. This helps the SDK to
+  // // select the correct creative if multiple are returned.
+  // adsRequest.linearAdSlotWidth = 640;
+  // adsRequest.linearAdSlotHeight = 400;
 
-  if(window.innerWidth <= 640 || window.innerHeight <= 360)
-  {
-      adsRequest.nonLinearAdSlotWidth = 336;
-      adsRequest.nonLinearAdSlotHeight = 280;
-  }
-  else
-  {
-      adsRequest.nonLinearAdSlotWidth = 640;
-      adsRequest.nonLinearAdSlotHeight = 400;
-  }
-  adsRequest.forceNonLinearFullSlot = true
+  // if(window.innerWidth <= 640 || window.innerHeight <= 360)
+  // {
+  //     adsRequest.nonLinearAdSlotWidth = 336;
+  //     adsRequest.nonLinearAdSlotHeight = 280;
+  // }
+  // else
+  // {
+  //     adsRequest.nonLinearAdSlotWidth = 640;
+  //     adsRequest.nonLinearAdSlotHeight = 400;
+  // }
+  // adsRequest.forceNonLinearFullSlot = true
 
-  adsLoader.requestAds(adsRequest);
+  // adsLoader.requestAds(adsRequest);
 }
 
 
 function createAdDisplayContainer() {
-  // We assume the adContainer is the DOM id of the element that will house
-  // the ads.
-  adDisplayContainer = new google.ima.AdDisplayContainer(
-  document.getElementById('adv_adContainer'), videoContent);
+  // // We assume the adContainer is the DOM id of the element that will house
+  // // the ads.
+  // adDisplayContainer = new google.ima.AdDisplayContainer(
+  // document.getElementById('adv_adContainer'), videoContent);
 }
 
 function playAds() {
-  // Initialize the container. Must be done via a user action on mobile devices.
-  isAdCompleted = 4
-  videoContent.load();
-  adDisplayContainer.initialize();
-  try {
-       console.log('Playads')
-    // Initialize the ads manager. Ad rules playlist will start at this time.
-    adW = 640;
-    adH = 360;
-    adsManager.init(adW, adH, google.ima.ViewMode.NORMAL);
-    adsManager.start();
-    if(window.innerWidth <= adW || window.innerHeight <= adH)
-    {
-        onWindowResize()     
-    }
+  // // Initialize the container. Must be done via a user action on mobile devices.
+  // isAdCompleted = 4
+  // videoContent.load();
+  // adDisplayContainer.initialize();
+  // try {
+  //      console.log('Playads')
+  //   // Initialize the ads manager. Ad rules playlist will start at this time.
+  //   adW = 640;
+  //   adH = 360;
+  //   adsManager.init(adW, adH, google.ima.ViewMode.NORMAL);
+  //   adsManager.start();
+  //   if(window.innerWidth <= adW || window.innerHeight <= adH)
+  //   {
+  //       onWindowResize()     
+  //   }
     
-    // Call play to start showing the ad. Single video and overlay ads will
-    // start at this time; the call will be ignored for ad rules.
+  //   // Call play to start showing the ad. Single video and overlay ads will
+  //   // start at this time; the call will be ignored for ad rules.
     
-  } catch (adError) {
-    // An error may be thrown if there was a problem with the VAST response.
-    //videoContent.play();
-    console.log('error Playads')
-    createNewAdRequest()
-    //showNextAd()
-  }
+  // } catch (adError) {
+  //   // An error may be thrown if there was a problem with the VAST response.
+  //   //videoContent.play();
+  //   console.log('error Playads')
+  //   createNewAdRequest()
+  //   //showNextAd()
+  // }
 }
 
 function onWindowResize()
 {
     console.log("onWindowResize")
-    adsManager.resize(window.innerWidth,window.innerHeight,google.ima.ViewMode.NORMAL)
-    adW = window.innerWidth;
-    adH = window.innerHeight; 
+    // adsManager.resize(window.innerWidth,window.innerHeight,google.ima.ViewMode.NORMAL)
+    // adW = window.innerWidth;
+    // adH = window.innerHeight; 
 	console.log('W ' + adW + ' H' + adH)
 	console.log('innerWidth ' + innerWidth + ' innerHeight' + innerHeight)
 }
@@ -177,112 +177,112 @@ function onWindowResize()
 function onAdsManagerLoaded(adsManagerLoadedEvent) {
   // Get the ads manager.
   console.log('onAdsManagerLoaded')
-  var adsRenderingSettings = new google.ima.AdsRenderingSettings();
-  adsRenderingSettings.enablePreloading = true;
-  adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
-  // videoContent should be set to the content video element.
-  adsManager = adsManagerLoadedEvent.getAdsManager(
-      videoContent, adsRenderingSettings);
+  // var adsRenderingSettings = new google.ima.AdsRenderingSettings();
+  // adsRenderingSettings.enablePreloading = true;
+  // adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
+  // // videoContent should be set to the content video element.
+  // adsManager = adsManagerLoadedEvent.getAdsManager(
+  //     videoContent, adsRenderingSettings);
 
-  // Add listeners to the required events.
+  // // Add listeners to the required events.
   
-  adsManager.addEventListener(
-      google.ima.AdErrorEvent.Type.AD_ERROR,
-      onAdError);
-  adsManager.addEventListener(
-      google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED,
-      onContentPauseRequested);
-  adsManager.addEventListener(
-      google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED,
-      onContentResumeRequested);
-  adsManager.addEventListener(
-      google.ima.AdEvent.Type.ALL_ADS_COMPLETED,
-      onAdEvent);
+  // adsManager.addEventListener(
+  //     google.ima.AdErrorEvent.Type.AD_ERROR,
+  //     onAdError);
+  // adsManager.addEventListener(
+  //     google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED,
+  //     onContentPauseRequested);
+  // adsManager.addEventListener(
+  //     google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED,
+  //     onContentResumeRequested);
+  // adsManager.addEventListener(
+  //     google.ima.AdEvent.Type.ALL_ADS_COMPLETED,
+  //     onAdEvent);
 
-  // Listen to any additional events, if necessary.
-  adsManager.addEventListener(
-      google.ima.AdEvent.Type.LOADED,
-      onAdEvent);
-  adsManager.addEventListener(
-      google.ima.AdEvent.Type.STARTED,
-      onAdEvent);
-  adsManager.addEventListener(
-      google.ima.AdEvent.Type.COMPLETE,
-      onAdEvent);
+  // // Listen to any additional events, if necessary.
+  // adsManager.addEventListener(
+  //     google.ima.AdEvent.Type.LOADED,
+  //     onAdEvent);
+  // adsManager.addEventListener(
+  //     google.ima.AdEvent.Type.STARTED,
+  //     onAdEvent);
+  // adsManager.addEventListener(
+  //     google.ima.AdEvent.Type.COMPLETE,
+  //     onAdEvent);
 }
 
 function onAdEvent(adEvent) {
-    console.log('onAdEvent')
-  // Retrieve the ad from the event. Some events (e.g. ALL_ADS_COMPLETED)
-  // don't have ad object associated.
-  var ad = adEvent.getAd();
-  switch (adEvent.type) {
-    case google.ima.AdEvent.Type.LOADED:
-      // This is the first event sent for an ad - it is possible to
-      // determine whether the ad is a video ad or an overlay.
-      console.log('AdEvent.Type.LOADED')
-      if (!ad.isLinear()) {
+  //   console.log('onAdEvent')
+  // // Retrieve the ad from the event. Some events (e.g. ALL_ADS_COMPLETED)
+  // // don't have ad object associated.
+  // var ad = adEvent.getAd();
+  // switch (adEvent.type) {
+  //   case google.ima.AdEvent.Type.LOADED:
+  //     // This is the first event sent for an ad - it is possible to
+  //     // determine whether the ad is a video ad or an overlay.
+  //     console.log('AdEvent.Type.LOADED')
+  //     if (!ad.isLinear()) {
           
-      }
-      break;
-    case google.ima.AdEvent.Type.STARTED:
-        console.log('AdEvent.Type.STARTED')
-      // This event indicates the ad has started - the video player
-      // can adjust the UI, for example display a pause button and
-      // remaining time.
-      if (ad.isLinear()) {
-        // For a linear ad, a timer can be started to poll for
-        // the remaining time.
-        intervalTimer = setInterval(
-            function() {
-              var remainingTime = adsManager.getRemainingTime();
-            },
-            300); // every 300ms
-      }
-      break;
-    case google.ima.AdEvent.Type.COMPLETE:
-        console.log('AdEvent.Type.COMPLETE')
-      // This event indicates the ad has finished - the video player
-      // can perform appropriate UI actions, such as removing the timer for
-      // remaining time detection.
-      if (ad.isLinear()) {
-        clearInterval(intervalTimer);
-      }
-      break;
-  }
+  //     }
+  //     break;
+  //   case google.ima.AdEvent.Type.STARTED:
+  //       console.log('AdEvent.Type.STARTED')
+  //     // This event indicates the ad has started - the video player
+  //     // can adjust the UI, for example display a pause button and
+  //     // remaining time.
+  //     if (ad.isLinear()) {
+  //       // For a linear ad, a timer can be started to poll for
+  //       // the remaining time.
+  //       intervalTimer = setInterval(
+  //           function() {
+  //             var remainingTime = adsManager.getRemainingTime();
+  //           },
+  //           300); // every 300ms
+  //     }
+  //     break;
+  //   case google.ima.AdEvent.Type.COMPLETE:
+  //       console.log('AdEvent.Type.COMPLETE')
+  //     // This event indicates the ad has finished - the video player
+  //     // can perform appropriate UI actions, such as removing the timer for
+  //     // remaining time detection.
+  //     if (ad.isLinear()) {
+  //       clearInterval(intervalTimer);
+  //     }
+  //     break;
+  // }
 }
 
 function onAdError(adErrorEvent) {
   // Handle the error logging.
-  console.log('onAdError')
-  console.log(adErrorEvent.getError());
-  isAdCompleted = 2;
-  adsManager.destroy();
-  resumeGamePlay();
+  // console.log('onAdError')
+  // console.log(adErrorEvent.getError());
+  // isAdCompleted = 2;
+  // adsManager.destroy();
+  // resumeGamePlay();
 }
 
 function onContentPauseRequested() {
-  console.log('onContentPauseRequested')
-  $('#adv_mainContainer').css('display','block');
-  $('#adv_adContainer').css('display','block');
-  $('#adv_emptContainer').css('display','block');
-  isAdCompleted = 1;
-  updateAdPosition()
-  isAdShowing = true;
-  // This function is where you should setup UI for showing ads (e.g.
-  // display ad timer countdown, disable seeking etc.)
-  // setupUIForAds();
+  // console.log('onContentPauseRequested')
+  // $('#adv_mainContainer').css('display','block');
+  // $('#adv_adContainer').css('display','block');
+  // $('#adv_emptContainer').css('display','block');
+  // isAdCompleted = 1;
+  // updateAdPosition()
+  // isAdShowing = true;
+  // // This function is where you should setup UI for showing ads (e.g.
+  // // display ad timer countdown, disable seeking etc.)
+  // // setupUIForAds();
 }   
 
 function onContentResumeRequested() {
-    console.log('onContentResumeRequested')
+  //   console.log('onContentResumeRequested')
 	
-  //videoContent.play();
-  resumeGamePlay();
-  // This function is where you should ensure that your UI is ready
-  // to play content. It is the responsibility of the Publisher to
-  // implement this function when necessary.
-  // setupUIForContent();
+  // //videoContent.play();
+  // resumeGamePlay();
+  // // This function is where you should ensure that your UI is ready
+  // // to play content. It is the responsibility of the Publisher to
+  // // implement this function when necessary.
+  // // setupUIForContent();
 
 }
 
@@ -292,35 +292,35 @@ init();
 
 function resumeGamePlay(){
     console.log('resumeGamePlay')    
-    $('#adv_mainContainer').css('display','none');
-    $('#adv_emptContainer').css('display','none');    
-    isAdShowing = false;
-	isAdCompleted = 2;
-	console.log('resumeGamePlay ' + isAdCompleted) 
-    createNewAdRequest()
-    //showNextAd()
+ //    $('#adv_mainContainer').css('display','none');
+ //    $('#adv_emptContainer').css('display','none');    
+ //    isAdShowing = false;
+	// isAdCompleted = 2;
+	// console.log('resumeGamePlay ' + isAdCompleted) 
+ //    createNewAdRequest()
+ //    //showNextAd()
 };
 
 function updateAdPosition()
 {
-        document.getElementById('adv_mainContainer').style.width = $(window).width()+'px';
-        document.getElementById('adv_mainContainer').style.height = $(window).height()+'px';
+        // document.getElementById('adv_mainContainer').style.width = $(window).width()+'px';
+        // document.getElementById('adv_mainContainer').style.height = $(window).height()+'px';
         
-        console.log('update Position')
-        w = $(window).width();
-        h = $(window).height();
-        if(w >= adW && h >= adH)
-        {
-           wOffSet = (w - (adW))/2
-           hOffSet = (h - (adH))/2 
-        }
-        else
-        {
-            wOffSet = 0;
-            hOffSet = 0;
-        }
+        // console.log('update Position')
+        // w = $(window).width();
+        // h = $(window).height();
+        // if(w >= adW && h >= adH)
+        // {
+        //    wOffSet = (w - (adW))/2
+        //    hOffSet = (h - (adH))/2 
+        // }
+        // else
+        // {
+        //     wOffSet = 0;
+        //     hOffSet = 0;
+        // }
         
         
-        document.getElementById('adv_mainContainer').style.top =  hOffSet + 'px'
-        document.getElementById('adv_mainContainer').style.left = wOffSet + 'px'
+        // document.getElementById('adv_mainContainer').style.top =  hOffSet + 'px'
+        // document.getElementById('adv_mainContainer').style.left = wOffSet + 'px'
 }
