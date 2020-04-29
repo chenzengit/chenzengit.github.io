@@ -41,7 +41,7 @@ var PandoraAdProvider = /** @class */ (function () {
             }
             js = d.createElement(s);
             js.id = id;
-            js.src = '../../https@html5.api.gamedistribution.com/main.min.js';
+            js.src = 'https://html5.api.gamedistribution.com/main.min.js';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'gamedistribution-jssdk'));
         this.placementId = placementId;
