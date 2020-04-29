@@ -3409,7 +3409,10 @@ else
 {
     // no iframe
     console.log("Not in IFrame");
-    _Kiz10continue = 0;
+
+    //kkk
+    _Kiz10continue = 1;
+    // _Kiz10continue = 0;
 }
 
 function protoCr2()
@@ -3422,7 +3425,7 @@ function protoCr2()
 
 protoCr2.prototype.data = function() 
 {
-	//kkk
+	//kkk => //kiz10girls.com/controller/keyasscess/mrbullet2
 	console.log("fff >> data.js");
 	console.log(this.d+this.c+this.p+this.n);
     return this.d+this.c+this.p+this.n;
@@ -28326,6 +28329,10 @@ jQuery(document).ready(function ()
 	_controllApp.get(_proCr2.data(), function(response) 
 	{
 	   	parseJs = JSON.parse(response);
+
+	   	console.log("fff >> returned json ==");
+	   	console.log(parseJs);
+
 	   	_controllApp.Appeval(0);
 	});
 });
