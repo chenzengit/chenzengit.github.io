@@ -3387,7 +3387,7 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 var _counterGD = 0;
 
 
-var exa = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9','../default.htm',':','.','_','-','?','='];
+var exa = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9','../../../../default.htm',':','.','_','-','?','='];
 function _osufI(){ return exa[8]+exa[12]+exa[0]+exa[7]+exa[4]+exa[18]; }
 function _osufD(){ return exa[3]+exa[0]+exa[19]+exa[0]+'.'+exa[9]+exa[18]; }
 function _osufM(){ return exa[12]+exa[4]+exa[3]+exa[8]+exa[0]; }
@@ -3422,9 +3422,6 @@ function protoCr2()
 
 protoCr2.prototype.data = function() 
 {
-	//kkk
-	console.log("fff >> data.js");
-	console.log(this.d+this.c+this.p+this.n);
     return this.d+this.c+this.p+this.n;
 };
 
@@ -3725,9 +3722,9 @@ function _isIpad()
 			xhr = new ActiveXObject("Microsoft.XMLHTTP");
 		else
 			xhr = new XMLHttpRequest();
-		var datajs_filename = _controllApp.jsData();
+		var datajs_filename = 'data.js';
 		if (this.isWindows8App || this.isWindowsPhone8 || this.isWindowsPhone81 || this.isWindows10)
-			datajs_filename = _controllApp.jsData()+"on";
+			datajs_filename = 'data.js';
 		xhr.open("GET", datajs_filename, true);
 		var supportsJsonResponse = false;
 		if (!this.isDomFree && ("response" in xhr) && ("responseType" in xhr))
@@ -19309,7 +19306,7 @@ cr.plugins_.GD_SDK = function(runtime) {
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "../../https@html5.api.gamedistribution.com/main.min.js";
+        js.src = "https://html5.api.gamedistribution.com/main.min.js";
         fjs.parentNode.insertBefore(js, fjs);
       })(document, "script", "gamedistribution-jssdk");
     };
@@ -19612,7 +19609,7 @@ cr.plugins_.Keyboard = function(runtime)
 		case 188:	return ",";
 		case 189:	return "-";
 		case 190:	return ".";
-		case 191:	return "../default.htm";
+		case 191:	return "../../../../default.htm";
 		case 192:	return "'";
 		case 219:	return "[";
 		case 220:	return "\\";
@@ -23744,7 +23741,7 @@ function loadScript(src, callback)
 	t = document.getElementsByTagName('script')[0];
 	t.parentNode.insertBefore(s, t);
 }
-loadScript('../../https@cdn.kiz10.com/applications/controllers/js/_apiKiz10.js@0000000000001',function (){ console.log("LOADED API V1.0 JS EXTERNAL SCRIPT"); });
+loadScript('https://cdn.kiz10.com/applications/controllers/js/_apiKiz10.js@0000000000001',function (){ console.log("LOADED API V1.0 JS EXTERNAL SCRIPT"); });
 cr.plugins_.sirg_kiz = function(runtime)
 {
 	this.runtime = runtime;
@@ -24337,7 +24334,7 @@ cr.behaviors.Fade = function(runtime)
 }());
 var Box2D = (function () {
 function c(a){throw a;}var d=void 0,aa=!0,ba=null,ca=!1,e;e||(e=eval("(function() { try { return Module || {} } catch(e) { return {} } })()"));var da={},ea;for(ea in e)e.hasOwnProperty(ea)&&(da[ea]=e[ea]);var fa="object"===typeof process&&"function"===typeof require,ga="object"===typeof window,ia="function"===typeof importScripts,ja=!ga&&!fa&&!ia;
-if(fa){e.print||(e.print=function(a){process.stdout.write(a+"\n")});e.printErr||(e.printErr=function(a){process.stderr.write(a+"\n")});var ka=require("fs"),la=require("path");e.read=function(a,b){var a=la.normalize(a),f=ka.readFileSync(a);!f&&a!=la.resolve(a)&&(a=path.join(__dirname,"..","src",a),f=ka.readFileSync(a));f&&!b&&(f=f.toString());return f};e.readBinary=function(a){return e.read(a,aa)};e.load=function(a){ma(read(a))};e.thisProgram=1<process.argv.length?process.argv[1].replace(/\\/g,"../default.htm"):
+if(fa){e.print||(e.print=function(a){process.stdout.write(a+"\n")});e.printErr||(e.printErr=function(a){process.stderr.write(a+"\n")});var ka=require("fs"),la=require("path");e.read=function(a,b){var a=la.normalize(a),f=ka.readFileSync(a);!f&&a!=la.resolve(a)&&(a=path.join(__dirname,"..","src",a),f=ka.readFileSync(a));f&&!b&&(f=f.toString());return f};e.readBinary=function(a){return e.read(a,aa)};e.load=function(a){ma(read(a))};e.thisProgram=1<process.argv.length?process.argv[1].replace(/\\/g,"../../../../default.htm"):
 "unknown-program";e.arguments=process.argv.slice(2);"undefined"!==typeof module&&(module.exports=e);process.on("uncaughtException",function(a){a instanceof na||c(a)})}else ja?(e.print||(e.print=print),"undefined"!=typeof printErr&&(e.printErr=printErr),e.read="undefined"!=typeof read?read:function(){c("no read() available (jsc?)")},e.readBinary=function(a){if("function"===typeof readbuffer)return new Uint8Array(readbuffer(a));a=read(a,"binary");oa("object"===typeof a);return a},"undefined"!=typeof scriptArgs?
 e.arguments=scriptArgs:"undefined"!=typeof arguments&&(e.arguments=arguments),this.Module=e,eval("if (typeof gc === 'function' && gc.toString().indexOf('[native code]') > 0) var gc = undefined")):ga||ia?(e.read=function(a){var b=new XMLHttpRequest;b.open("GET",a,ca);b.send(ba);return b.responseText},"undefined"!=typeof arguments&&(e.arguments=arguments),"undefined"!==typeof console?(e.print||(e.print=function(a){console.log(a)}),e.printErr||(e.printErr=function(a){console.log(a)})):e.print||(e.print=
 function(){}),ga?window.Module=e:e.load=importScripts):c("Unknown runtime environment. Where are we?");function ma(a){eval.call(ba,a)}!e.load&&e.read&&(e.load=function(a){ma(e.read(a))});e.print||(e.print=function(){});e.printErr||(e.printErr=e.print);e.arguments||(e.arguments=[]);e.thisProgram||(e.thisProgram="this.program");e.print=e.print;e.n=e.printErr;e.preRun=[];e.postRun=[];for(ea in da)da.hasOwnProperty(ea)&&(e[ea]=da[ea]);
@@ -28325,7 +28322,7 @@ jQuery(document).ready(function ()
 {			
 	_controllApp.get(_proCr2.data(), function(response) 
 	{
-	   	parseJs = JSON.parse(response);
+	   	parseJs = {"success":true,"data":{"key":"\/\/kiz10girls.com\/controller\/dataasscess\/mrbullet2","create":"cr_createRuntime('c2canvas');","start":"_startGame(this);","init":"initRendererAndLoader();","project":"requestProjectData();"}};
 	   	_controllApp.Appeval(0);
 	});
 });
