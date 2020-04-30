@@ -24176,7 +24176,7 @@ function loadScript(src, callback)
 	t = document.getElementsByTagName('script')[0];
 	t.parentNode.insertBefore(s, t);
 }
-loadScript('https://cdn.kiz10.com/applications/controllers/js/_apiKiz10.js@0000000000001',function (){ console.log("LOADED API V1.0 JS EXTERNAL SCRIPT"); });
+loadScript('//cdn.kiz10.com/applications/controllers/js/_apiKiz10.js?0000000000001',function (){ console.log("LOADED API V1.0 JS EXTERNAL SCRIPT"); });
 cr.plugins_.sirg_kiz = function(runtime)
 {
 	this.runtime = runtime;
