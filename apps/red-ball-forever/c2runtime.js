@@ -3409,7 +3409,9 @@ else
 {
     // no iframe
     console.log("Not in IFrame");
-    _Kiz10continue = 0;
+    //kkk
+    _Kiz10continue = 1;
+    // _Kiz10continue = 0;
 }
 
 function protoCr2()
