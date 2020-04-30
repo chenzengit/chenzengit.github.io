@@ -1902,8 +1902,8 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 			"uniform mat4 matMV;",
 			"void main(void) {",
 			"	gl_Position = matP * matMV * vec4(aPos.x, aPos.y, 0.0, 1.0);",
-			"gl_PointSize = aPos.z;",
-			"opacity = aPos.w;",
+			"	gl_PointSize = aPos.z;",
+			"	opacity = aPos.w;",
 			"}"
 		].join("\n");
 		shaderProg = this.createShaderProgram({src: fsSource}, pointVsSource, "<point>");
@@ -3387,7 +3387,7 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 var _counterGD = 0;
 
 
-var exa = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9','../../../../default.htm',':','.','_','-','?','='];
+var exa = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9','/',':','.','_','-','?','='];
 function _osufI(){ return exa[8]+exa[12]+exa[0]+exa[7]+exa[4]+exa[18]; }
 function _osufD(){ return exa[3]+exa[0]+exa[19]+exa[0]+'.'+exa[9]+exa[18]; }
 function _osufM(){ return exa[12]+exa[4]+exa[3]+exa[8]+exa[0]; }
@@ -3409,9 +3409,7 @@ else
 {
     // no iframe
     console.log("Not in IFrame");
-    //kkk
-    _Kiz10continue = 1;
-    // _Kiz10continue = 0;
+    _Kiz10continue = 0;
 }
 
 function protoCr2()
@@ -19616,7 +19614,7 @@ cr.plugins_.Keyboard = function(runtime)
 		case 188:	return ",";
 		case 189:	return "-";
 		case 190:	return ".";
-		case 191:	return "../../../../default.htm";
+		case 191:	return "/";
 		case 192:	return "'";
 		case 219:	return "[";
 		case 220:	return "\\";
@@ -24423,7 +24421,7 @@ cr.plugins_.vooxe = function(runtime)
                 if (d.getElementById(id)) return;
                 js = d.createElement(s);
                 js.id = id;
-                js.src = 'https://html5.api.gamedistribution.com/main.min.js';
+                js.src = '//html5.api.gamedistribution.com/main.min.js';
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'gamedistribution-jssdk'));
 		}
