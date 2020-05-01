@@ -27,10 +27,9 @@ var MagikMons;
     MagikMons.Game = Game;
 })(MagikMons || (MagikMons = {}));
 window.onload = function () {
-            //kkk
-    // if (MagikMons.GameConstants.SPONSOR !== MagikMons.GameConstants.GAMEPIX && typeof GamePix === "undefined") {
+    if (MagikMons.GameConstants.SPONSOR !== MagikMons.GameConstants.GAMEPIX && typeof GamePix === "undefined") {
         var game = new MagikMons.Game();
-    // }
+    }
 };
 var MagikMons;
 (function (MagikMons) {
@@ -284,10 +283,7 @@ var MagikMons;
         GameConstants.NONE = "sponsor";
         GameConstants.GAMEPIX = "gamepix";
         GameConstants.POKI = "poki";
-        //kkk
-        GameConstants.SPONSOR = GameConstants.NONE;
-        // GameConstants.SPONSOR = GameConstants.POKI;
-
+        GameConstants.SPONSOR = GameConstants.POKI;
         GameConstants.GAME_WIDTH = 480;
         GameConstants.GAME_HEIGHT = 640;
         GameConstants.START_STATE = "SplashState";
@@ -400,37 +396,35 @@ var MagikMons;
         function GameManager() {
         }
         GameManager.init = function (game) {
-            //kkk
+            if (typeof GamePix !== "undefined") {
+                GamePix.pause = function () {
+                    GameManager.game.paused = true;
+                };
+                GamePix.resume = function () {
+                    GameManager.game.paused = false;
+                };
+                GamePix.soundOn = function () {
+                    GameManager.game.sound.mute = true;
+                };
+                GamePix.soundOff = function () {
+                    if (!MagikMons.GameVars.gameData.muted) {
+                        GameManager.game.sound.mute = false;
+                    }
+                };
+                if (GamePix.CONT) {
+                    GamePix.ping(GamePix.CONT.START_PLAY);
+                }
+            }
+            else if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                GameManager.checkPoki();
                 GameManager.correctUrl(game);
-            // if (typeof GamePix !== "undefined") {
-            //     GamePix.pause = function () {
-            //         GameManager.game.paused = true;
-            //     };
-            //     GamePix.resume = function () {
-            //         GameManager.game.paused = false;
-            //     };
-            //     GamePix.soundOn = function () {
-            //         GameManager.game.sound.mute = true;
-            //     };
-            //     GamePix.soundOff = function () {
-            //         if (!MagikMons.GameVars.gameData.muted) {
-            //             GameManager.game.sound.mute = false;
-            //         }
-            //     };
-            //     if (GamePix.CONT) {
-            //         GamePix.ping(GamePix.CONT.START_PLAY);
-            //     }
-            // }
-            // else if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     GameManager.checkPoki();
-            //     GameManager.correctUrl(game);
-            // }
-            // else if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.GAMEPIX) {
-            //     GameManager.correctUrl(game);
-            // }
-            // else {
-            //     console.log("WRONG URL");
-            // }
+            }
+            else if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.GAMEPIX) {
+                GameManager.correctUrl(game);
+            }
+            else {
+                console.log("WRONG URL");
+            }
         };
         GameManager.checkPoki = function () {
             var _0xd244 = ["\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4A\x4B\x4C\x4D\x4E\x4F\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5A\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6A\x6B\x6C\x6D\x6E\x6F\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7A\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x2B\x2F\x3D", "", "\x63\x68\x61\x72\x43\x6F\x64\x65\x41\x74", "\x63\x68\x61\x72\x41\x74", "\x5F\x6B\x65\x79\x53\x74\x72", "\x6C\x65\x6E\x67\x74\x68", "\x72\x65\x70\x6C\x61\x63\x65", "\x69\x6E\x64\x65\x78\x4F\x66", "\x66\x72\x6F\x6D\x43\x68\x61\x72\x43\x6F\x64\x65", "\x6E", "\x61\x48\x52\x30\x63\x44\x6F\x76\x4C\x32\x78\x76\x59\x32\x46\x73\x61\x47\x39\x7A\x64\x43\x38\x3D", "\x61\x48\x52\x30\x63\x48\x4D\x36\x4C\x79\x39\x78\x59\x53\x31\x6D\x61\x57\x78\x6C\x63\x79\x35\x77\x62\x32\x74\x70\x4C\x6D\x4E\x76\x62\x51\x3D\x3D", "\x61\x48\x52\x30\x63\x48\x4D\x36\x4C\x79\x39\x6E\x59\x57\x31\x6C\x4C\x57\x4E\x6B\x62\x69\x35\x77\x62\x32\x74\x70\x4C\x6D\x4E\x76\x62\x51\x3D\x3D", "\x61\x48\x52\x30\x63\x44\x6F\x76\x4C\x32\x78\x76\x59\x32\x46\x73\x61\x47\x39\x7A\x64\x44\x6F\x3D", "\x64\x65\x63\x6F\x64\x65", "\x68\x72\x65\x66", "\x6C\x6F\x63\x61\x74\x69\x6F\x6E", "\x73\x75\x62\x73\x74\x72", "\x61\x48\x52\x30\x63\x44\x6F\x76\x4C\x33\x42\x76\x4C\x6D\x74\x70\x4C\x33\x4E\x70\x64\x47\x56\x73\x62\x32\x4E\x72\x63\x6D\x56\x6B\x61\x58\x4A\x6C\x59\x33\x51\x3D", "\x74\x6F\x70"];
@@ -688,20 +682,19 @@ var MagikMons;
             GameManager.game.camera.fade(0x000000, 500, false);
         };
         GameManager.backHome = function () {
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            // }
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.gameplayStop();
-            //     PokiSDK.commercialBreak().then(function () {
-            //         MagikMons.GameVars.paused = false;
-            //         GameManager.game.state.start("SplashState", true, false);
-            //     });
-            // }
-            // else {
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+            }
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.gameplayStop();
+                PokiSDK.commercialBreak().then(function () {
+                    MagikMons.GameVars.paused = false;
+                    GameManager.game.state.start("SplashState", true, false);
+                });
+            }
+            else {
                 MagikMons.GameVars.paused = false;
                 GameManager.game.state.start("SplashState", true, false);
-            // }
+            }
         };
         GameManager.goAttacksState = function () {
             GameManager.game.state.start("AttacksState", true, false);
@@ -783,15 +776,14 @@ var MagikMons;
             if (MagikMons.GameVars.slotData.state === MagikMons.GameConstants.TUTORIAL_CAPTURE) {
                 GameManager.endCaptureTutorial();
             }
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.commercialBreak().then(function () {
-            //         GameManager.goMapState(MagikMons.GameVars.slotData.mapName);
-            //     });
-            // }
-            // else {
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.commercialBreak().then(function () {
+                    GameManager.goMapState(MagikMons.GameVars.slotData.mapName);
+                });
+            }
+            else {
                 GameManager.goMapState(MagikMons.GameVars.slotData.mapName);
-            // }
+            }
         };
         GameManager.createMonsterFromId = function (id, level, uniqueId, player) {
             MagikMons.GameVars.slotData.bestiary[parseInt(id) - 1] = true;
@@ -1033,15 +1025,14 @@ var MagikMons;
             this.game.state.start("SplashState", true, false);
         };
         GameManager.startGame = function () {
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.init().then(function () {
-            //         console.log("PokiSDK initialized");
-            //     }).catch(function () {
-            //         console.log("Adblock enabled");
-            //     });
-            //     PokiSDK.setDebug(false);
-            // }
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.init().then(function () {
+                    console.log("PokiSDK initialized");
+                }).catch(function () {
+                    console.log("Adblock enabled");
+                });
+                PokiSDK.setDebug(false);
+            }
             GameManager.game.state.start("PreLoader", true, false);
         };
         GameManager.createSlot = function () {
@@ -1281,19 +1272,17 @@ var MagikMons;
             this.animFinished = false;
         };
         PreLoader.prototype.preload = function () {
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.gameLoadingStart();
-            // }
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.gameLoadingStart();
+            }
             this.generateBitmapData();
             this.composeScene();
             this.loadAssets();
         };
         PreLoader.prototype.create = function () {
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.gameLoadingFinished();
-            // }
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.gameLoadingFinished();
+            }
             this.game.time.events.add(500, function () {
                 if (this.animFinished) {
                     this.startGame();
@@ -1320,27 +1309,24 @@ var MagikMons;
             }
             this.preloadBar.scale.x = this.load.progress / 100 * 3.925;
             this.bus.x = MagikMons.GameConstants.GAME_WIDTH / 2 - 126 + this.load.progress / 100 * 3.925 * MagikMons.GameConstants.BITMAP_SIZE;
-            
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.GAMEPIX) {
-            //     GamePix.loading(this.load.progress);
-            // }
-            // else if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.gameLoadingProgress({ percentageDone: this.load.progress });
-            // }
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.GAMEPIX) {
+                GamePix.loading(this.load.progress);
+            }
+            else if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.gameLoadingProgress({ percentageDone: this.load.progress });
+            }
         };
         PreLoader.prototype.startGame = function () {
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.GAMEPIX) {
-            //     GamePix.loaded().then(function () {
-            //         MagikMons.GameManager.onGameAssetsLoaded();
-            //     }).catch(function (e) {
-            //         MagikMons.GameManager.log("error initialising game", e);
-            //     });
-            // }
-            // else {
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.GAMEPIX) {
+                GamePix.loaded().then(function () {
+                    MagikMons.GameManager.onGameAssetsLoaded();
+                }).catch(function (e) {
+                    MagikMons.GameManager.log("error initialising game", e);
+                });
+            }
+            else {
                 MagikMons.GameManager.onGameAssetsLoaded();
-            // }
+            }
         };
         PreLoader.prototype.composeScene = function () {
             this.add.text(0, 0, "ABCDE", { font: "60px Adineue", fill: "#FFFFFF" });
@@ -2096,25 +2082,24 @@ var MagikMons;
         FightManager.catchVideoMonster = function () {
             MagikMons.GameVars.extraCapture = .2;
             FightManager.disableGUI();
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.GAMEPIX && typeof GamePix !== "undefined") {
-            //     GamePix.hook({ type: "show_video_reward" })
-            //         .then(function (res) {
-            //         MagikMons.FightState.currentInstance.animationCatch();
-            //     })
-            //         .catch(function (e) {
-            //         console.log(e);
-            //     });
-            // }
-            // else if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.rewardedBreak().then(function (withReward) {
-            //         console.log("Should the user get a reward? ${withReward}");
-            //         MagikMons.FightState.currentInstance.animationCatch();
-            //     });
-            // }
-            // else {
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.GAMEPIX && typeof GamePix !== "undefined") {
+                GamePix.hook({ type: "show_video_reward" })
+                    .then(function (res) {
+                    MagikMons.FightState.currentInstance.animationCatch();
+                })
+                    .catch(function (e) {
+                    console.log(e);
+                });
+            }
+            else if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.rewardedBreak().then(function (withReward) {
+                    console.log("Should the user get a reward? ${withReward}");
+                    MagikMons.FightState.currentInstance.animationCatch();
+                });
+            }
+            else {
                 MagikMons.FightState.currentInstance.animationCatch();
-            // }
+            }
         };
         FightManager.decisionCatch = function () {
             var perc = MagikMons.GameVars.adversaryMonstersFighting[0].life / MagikMons.GameVars.adversaryMonstersFighting[0].maxLife;
@@ -2919,12 +2904,11 @@ var MagikMons;
             else {
                 MagikMons.AudioManager.playSound("musica_defeat");
             }
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     if (win && MagikMons.GameVars.typeFight === MagikMons.GameConstants.TRAINER_FIGHT) {
-            //         PokiSDK.happyTime(1);
-            //     }
-            // }
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                if (win && MagikMons.GameVars.typeFight === MagikMons.GameConstants.TRAINER_FIGHT) {
+                    PokiSDK.happyTime(1);
+                }
+            }
             return _this;
         }
         EndFightLayer.prototype.update = function () {
@@ -2995,15 +2979,14 @@ var MagikMons;
         EndFightLayer.prototype.onClickContinue = function () {
             var _this = this;
             this.continueButton.scale.set(1, MagikMons.GameVars.scaleY);
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.commercialBreak().then(function () {
-            //         MagikMons.GameManager.fightToMap(_this.winBool);
-            //     });
-            // }
-            // else {
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.commercialBreak().then(function () {
+                    MagikMons.GameManager.fightToMap(_this.winBool);
+                });
+            }
+            else {
                 MagikMons.GameManager.fightToMap(this.winBool);
-            // }
+            }
         };
         EndFightLayer.prototype.onButtonDown = function (b) {
             b.scale.set(1.1, 1.1 * MagikMons.GameVars.scaleY);
@@ -3897,15 +3880,14 @@ var MagikMons;
             if (MagikMons.GameVars.slotData.state > MagikMons.GameConstants.TUTORIAL_ESCAPE) {
                 MagikMons.GameVars.currentSpawn = null;
             }
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.commercialBreak().then(function () {
-            //         MagikMons.GameManager.fightToMap();
-            //     });
-            // }
-            // else {
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.commercialBreak().then(function () {
+                    MagikMons.GameManager.fightToMap();
+                });
+            }
+            else {
                 MagikMons.GameManager.fightToMap();
-            // }
+            }
         };
         MenuFightLayer.prototype.onButtonDown = function (b) {
             MagikMons.AudioManager.playSound("click_btn");
@@ -10183,25 +10165,24 @@ var MagikMons;
         };
         TeamLayer.prototype.onClickInstantHeal = function (b) {
             b.scale.set(1);
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.GAMEPIX && typeof GamePix !== "undefined") {
-            //     GamePix.hook({ type: "show_video_reward" })
-            //         .then(function (res) {
-            //         MagikMons.MapState.currentInstance.teamLayer.instantHeal();
-            //     })
-            //         .catch(function (e) {
-            //         console.log(e);
-            //     });
-            // }
-            // else if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.rewardedBreak().then(function (withReward) {
-            //         console.log("Should the user get a reward? ${withReward}");
-            //         MagikMons.MapState.currentInstance.teamLayer.instantHeal();
-            //     });
-            // }
-            // else {
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.GAMEPIX && typeof GamePix !== "undefined") {
+                GamePix.hook({ type: "show_video_reward" })
+                    .then(function (res) {
+                    MagikMons.MapState.currentInstance.teamLayer.instantHeal();
+                })
+                    .catch(function (e) {
+                    console.log(e);
+                });
+            }
+            else if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.rewardedBreak().then(function (withReward) {
+                    console.log("Should the user get a reward? ${withReward}");
+                    MagikMons.MapState.currentInstance.teamLayer.instantHeal();
+                });
+            }
+            else {
                 this.instantHeal();
-            // }
+            }
         };
         TeamLayer.prototype.instantHeal = function () {
             for (var i = 0; i < 6; i++) {
@@ -11326,15 +11307,14 @@ var MagikMons;
             }
             MagikMons.AudioManager.playSound("click_btn");
             this.leavingScene = true;
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.commercialBreak().then(function () {
-            //         MagikMons.GameManager.slotSelected(_this.id);
-            //     });
-            // }
-            // else {
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.commercialBreak().then(function () {
+                    MagikMons.GameManager.slotSelected(_this.id);
+                });
+            }
+            else {
                 MagikMons.GameManager.slotSelected(this.id);
-            // }
+            }
         };
         Slot.prototype.onClickErase = function () {
             if (this.erasing) {
@@ -11497,10 +11477,9 @@ var MagikMons;
             }, this);
         };
         SplashState.prototype.hide = function (slot) {
-            //kkk
-            // if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
-            //     PokiSDK.gameplayStart();
-            // }
+            if (MagikMons.GameConstants.SPONSOR === MagikMons.GameConstants.POKI) {
+                PokiSDK.gameplayStart();
+            }
             this.game.add.tween(this.backgroundSprite)
                 .to({ alpha: 0 }, 1000, Phaser.Easing.Cubic.In, true);
             this.game.add.tween(this.audioButton)

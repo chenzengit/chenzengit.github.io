@@ -19231,8 +19231,9 @@ cr.plugins_.GD_SDK = function(runtime) {
   pluginProto.Instance = function(type) {
     this.type = type;
     this.runtime = type.runtime;
-    window["gdsdk"] = {};
-    window["GD_OPTIONS"] = {};
+    //kkk
+    // window["gdsdk"] = {};
+    // window["GD_OPTIONS"] = {};
   };
   var instanceProto = pluginProto.Instance.prototype;
   var isSupported = false;

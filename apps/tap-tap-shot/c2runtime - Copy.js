@@ -24141,9 +24141,8 @@ cr.plugins_.vooxe = function(runtime)
 	{
 		this.type = type;
 		this.runtime = type.runtime;
-		//kkk
-		// window["vooxe"]={};
-		// window["GD_OPTIONS"]={};
+		window["vooxe"]={};
+		window["GD_OPTIONS"]={};
 	};
 	var instanceProto = pluginProto.Instance.prototype;
 	var isSupported = false;
