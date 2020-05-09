@@ -1902,8 +1902,8 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 			"uniform mat4 matMV;",
 			"void main(void) {",
 			"	gl_Position = matP * matMV * vec4(aPos.x, aPos.y, 0.0, 1.0);",
-			"gl_PointSize = aPos.z;",
-			"opacity = aPos.w;",
+			"	gl_PointSize = aPos.z;",
+			"	opacity = aPos.w;",
 			"}"
 		].join("\n");
 		shaderProg = this.createShaderProgram({src: fsSource}, pointVsSource, "<point>");
@@ -20031,7 +20031,7 @@ cr.plugins_.Keyboard = function(runtime)
 		case 188:	return ",";
 		case 189:	return "-";
 		case 190:	return ".";
-		case 191:	return "../../default.htm";
+		case 191:	return "/";
 		case 192:	return "'";
 		case 219:	return "[";
 		case 220:	return "\\";
@@ -26720,7 +26720,6 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
 	cr.plugins_.Sprite.prototype.acts.SetScale,
 	cr.plugins_.Sprite.prototype.cnds.IsOverlapping,
-	cr.plugins_.Browser.prototype.acts.ExecJs,
 	cr.plugins_.Text.prototype.acts.AppendText,
 	cr.behaviors.lunarray_LiteTween.prototype.acts.Start,
 	cr.behaviors.Fade.prototype.acts.StartFade,
